@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo docker build -t graph-explorer .
+sudo PORT=8888 docker build -t sfproductlabs/graph-explorer:latest .
 cat ~/.DH_TOKEN | sudo docker login --username sfproductlabs --password-stdin
-sudo docker tag $(sudo docker images -q | head -1) sfproductlabs/graph-explorer:latest
 sudo docker push sfproductlabs/graph-explorer:latest
